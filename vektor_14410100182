@@ -1,0 +1,22 @@
+import java.lang.System.*;
+import java.util.*;
+
+
+public class vektor {
+	String nim;
+	String mhs1;
+	String nama;
+	public static void main(String args[]) {
+	
+	Vector <vektor> vmhs = new Vector <vektor>();
+	vektor.mhs1 = new vektor();
+	mhs1.nim = "123";
+	mhs1.nama = "addo";
+	vmhs.addElement(mhs1);
+	
+	System.out.println("Nim : "+vmhs.elementAdd(0).nim);
+	System.out.println("Nama : "+vmhs.elementAdd(0).nama);
+	}
+
+
+}
