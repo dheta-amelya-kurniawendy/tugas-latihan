@@ -1,0 +1,36 @@
+import java.lang.System.*;
+import java.util.Scanner;
+
+
+public class pencetakbilgenap_14410100182 {
+	 public static void main(String args[]) {
+		 
+		 Scanner input = new Scanner(System.in);
+		 System.out.println("=================== INPUT ===================");
+		 System.out.print("Masukkan jumlah bilangan : ");
+		 int n = input.nextInt();
+		 int i=1;
+		 int bilangangenap=0;
+		 
+		 System.out.println();
+		 System.out.println("=================== OUTPUT ===================");
+		 
+		 while (i<=n) {
+			 System.out.println (i*2);
+			 
+			/*bilangangenap = bilangangenap + 2;
+			System.out.println (i + bilangangenap);
+			if(i % 2 == 0){
+				System.out.println (i);
+			}
+			else{
+				bilangangenap = bilangangenap + 1;
+				System.out.println (bilangangenap);
+			}*/
+			
+			 i++;
+		 }
+		 	 
+	 
+	 }
+}
