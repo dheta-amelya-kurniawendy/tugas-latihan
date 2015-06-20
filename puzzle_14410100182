@@ -1,0 +1,67 @@
+import java.lang.System.*;
+import java.util.Scanner;
+import java.lang.Math;
+import java.util.Random;
+
+public class puzzle_14410100182 {
+	 
+	 
+	 public static String [] pecahhuruf(String kata) {
+		 String [] data = new String [kata.length()+1];
+		 for (int i=1; i<=kata.length(); i++) {
+			 data[i]= Character.toString(kata.charAt(i-1));
+		 }
+		 return data;
+	 }
+	 /**
+	 * Returns a pseudo-random number between min and max, inclusive.
+	 * The difference between min and max can be at most
+	 * <code>Integer.MAX_VALUE - 1</code>.
+	 *
+	 * @param min Minimum value
+	 * @param max Maximum value.  Must be greater than min.
+	 * @return Integer between min and max, inclusive.
+	 * @see java.util.Random#nextInt(int)
+	 */
+	public static int randInt(int min, int max) {
+
+		// NOTE: Usually this should be a field rather than a method
+		// variable so that it is not re-seeded every call.
+		Random rand = new Random();
+
+		// nextInt is normally exclusive of the top value,
+		// so add 1 to make it inclusive
+		int randomNum = rand.nextInt((max - min) + 1) + min;
+
+		return randomNum;
+	}
+	
+	public static boolean search_array_java (int [] data, int random) {
+		
+		boolean losingSeason = false;
+		for (Integer number : data) {
+			if (number.equals(random)) {
+				losingSeason = true;
+				break;
+			}
+		}
+		return losingSeason;
+	}
+
+	 public static void main(String args[]) {
+		 int[] ex;
+		 Scanner input 	= new Scanner(System.in);
+		 System.out.print("Inputkan Kata : ");
+		 String kata   	= input.nextLine();
+		 ex				= new int [kata.length()+1];
+         String [] data = pecahhuruf(kata);
+		 for (int i=0; i<data.length-1; i++) {
+			 int random = randInt(0,data.length-1); 
+			 while(search_array_java(ex,random)) {
+					random = randInt(0,data.length-1); 
+			 }
+			 ex[i] = random;
+			 System.out.print(" " + data[random] + "  ");	 			 			
+		 }
+	 }
+}
