@@ -1,0 +1,378 @@
+import java.util.*;
+
+public class UAS2
+{
+	public static void main(String[]arg)
+	{
+		String strUser = "admin";
+		String strPass = "admin";
+		
+		Boolean sudahLogin = false;
+		
+		Vector idcustomer = new Vector();
+		Vector nama = new Vector();
+		Vector jeniskelamin = new Vector();
+		Vector alamat = new Vector();
+		Vector kota = new Vector();
+		Vector nomortlp = new Vector();
+		
+		
+
+		Vector idbarang = new Vector();
+		Vector namabarang = new Vector();
+		Vector stock = new Vector();
+		Vector harga = new Vector();
+		Vector hargasebelumdiskon = new Vector();
+		Vector hargasesudahdiskon = new Vector();
+		
+		// ID Barang
+		idbarang.addElement("1");
+		idbarang.addElement("2");
+
+		// Nama Barang
+		namabarang.addElement("Buku Tulis");
+		namabarang.addElement("Pensil");
+
+		// Stock Barang
+		stock.addElement(2);
+		stock.addElement(2);
+
+	
+		// Harga
+		harga.addElement(2500);
+		harga.addElement(2000);
+
+
+		// Sebelum Diskon
+		hargasebelumdiskon.addElement(2500);
+		hargasebelumdiskon.addElement(2000);
+		
+		// Sesudah Diskon
+		hargasesudahdiskon.addElement(2000);
+		hargasesudahdiskon.addElement(1500);
+
+
+		Vector kodepembayaran = new Vector();
+		Vector jumlahbeli = new Vector();
+		Vector total = new Vector();
+		Vector statusbayar = new Vector();
+		Vector statuspengiriman = new Vector();
+		
+		Vector beli_idBarang = new Vector();
+		Vector beli_jmlBarang = new Vector();
+		Vector id_pembelian = new Vector();
+		
+		Vector harga_total = new Vector();
+		Vector nominal = new Vector();
+		
+		Scanner inputan = new Scanner(System.in);
+		Scanner inputanadmin = new Scanner(System.in);
+		Scanner inputancustomer = new Scanner(System.in);
+		do
+		{
+			System.out.println();
+			System.out.println("=========================================");
+			System.out.println("       Program Utama     ");
+			System.out.println("=========================================");
+			System.out.println(" 1. Admin");
+			System.out.println(" 2. customer");
+			System.out.print(" Masukkan Pilihan Anda (1/2) : ");
+			int pil = Integer.parseInt(inputan.nextLine());
+			
+			if(pil==1)
+			{
+				System.out.println();
+				System.out.println("=========================================");
+				System.out.println("       TAMPILAN MENU ADMIN     ");
+				System.out.println("=========================================");
+				System.out.println(" 1. Login");
+				System.out.println(" 2. Input Data Barang");
+				System.out.println(" 3. Status Pengiriman");
+				System.out.print(" Masukkan Pilihan Anda (1-3) : ");
+				int pil1 = Integer.parseInt(inputanadmin.nextLine());	
+			
+				switch(pil1)
+				{
+				case 1:
+				System.out.println("=========================");
+				System.out.println("          Login");
+				System.out.println("=========================");
+				System.out.println();
+				System.out.println("Inputkan User dan Password");
+				System.out.println();
+				System.out.print("User 		: "); String user = inputan.nextLine();
+				System.out.print("Password 		: "); String Password = inputan.nextLine();
+				
+				if (user.equals("exit")) System.exit(0);
+				
+				if (Password.equals(strPass) && user.equals(strUser))
+					sudahLogin = true;
+				else
+					System.out.println("**ERROR** login tidak valid");
+				break;
+			
+				 case 2:
+		System.out.println("======================");
+		System.out.println("Proses Tambah Barang");
+		System.out.println("======================");
+		System.out.print("Masukkan jumlah Barang=");
+		int banyak = Integer.parseInt(inputan.nextLine());
+		for(int i=0;i<banyak;i++){
+		System.out.print("Masukkan nama barang ke" +(i+1)+ "=");
+		namabarang.addElement(inputan.nextLine());
+			}
+			for (int i=0;i<namabarang.size();i++){
+				
+			}
+			
+			for(int i=0;i<banyak;i++){
+		System.out.print("Masukkan Harga barang ke" +(i+1)+ "=");
+		harga.addElement(inputan.nextLine());
+			}
+			for (int i=0;i<harga.size();i++){
+				
+			}
+			
+			for(int i=0;i<banyak;i++){
+		System.out.print("Masukkan Stock barang ke" +(i+1)+ "=");
+		stock.addElement(inputan.nextLine());
+			}
+			for (int i=0;i<stock.size();i++){
+				
+			}
+		
+		for(int i=0;i<banyak;i++){
+		System.out.print("ID barang ke" +(i+1)+ "=");
+		idbarang.addElement(inputan.nextLine());
+			}
+			for (int i=0;i<idbarang.size();i++){
+				
+				System.out.println("Nama Barang " +(i+1)+ " : "+namabarang.elementAt(i));
+				
+				System.out.println("Id barang ke " +(i+1)+ " :"+idbarang.elementAt(i));
+				
+				System.out.println("Harga barang ke " +(i+1)+ " :"+harga.elementAt(i));
+				
+				System.out.println("Stock barang ke " +(i+1)+ " :"+stock.elementAt(i));
+			}
+			
+				break;
+				
+				case 3:
+					System.out.println("======================");
+					System.out.println("Status Pengiriman");
+					System.out.println("======================");
+					
+					for (int i=0;i<idcustomer.size();i++){
+					
+					System.out.println("Id customer : "+(idcustomer.elementAt(i)));
+					System.out.println("nama customer : "+(nama.elementAt(i)));
+					System.out.println("alamat customer : "+(alamat.elementAt(i)));
+					System.out.println("kota customer : "+(kota.elementAt(i)));
+					System.out.println("nomortlp customer : "+(nomortlp.elementAt(i)));
+					}
+					for (int i=0;i<beli_idBarang.size();i++)	
+					{
+						System.out.println("Nama Barang "+(i+1)+" : "+namabarang.elementAt(Integer.parseInt(beli_idBarang.elementAt(i).toString())-1));
+						System.out.println("Id barang ke "+(i+1)+" :"+idbarang.elementAt(Integer.parseInt(beli_idBarang.elementAt(i).toString())-1));
+						System.out.println("Harga barang satuan ke "+(i+1)+" :"+harga.elementAt(Integer.parseInt(beli_idBarang.elementAt(i).toString())-1));
+						System.out.println("Jml barang ke "+(i+1)+" :"+beli_jmlBarang.elementAt(i));
+						System.out.println("Harga barang ke " +(i+1)+ " :"+Integer.parseInt(harga.elementAt(Integer.parseInt(beli_idBarang.elementAt(i).toString())-1).toString())*Integer.parseInt(beli_jmlBarang.elementAt(i).toString()));
+						System.out.println("hargasebelumdiskon : "+(hargasebelumdiskon.elementAt(i)));
+						System.out.println("hargasesudahdiskon : "+(hargasesudahdiskon.elementAt(i)));
+						System.out.println("Nominal : "+(nominal.elementAt(i)));
+						
+						if (Double.parseDouble(nominal.elementAt(i).toString()) < Double.parseDouble(hargasesudahdiskon.elementAt(i).toString())){
+							System.out.println("Belum Terkirim");	
+						}else{
+							System.out.println("Terkirim");	
+						}
+						
+						
+					}
+					
+							
+				break;
+				
+					
+				}	
+			}
+			
+			else
+			{
+				System.out.println();
+				System.out.println("=========================================");
+				System.out.println("       TAMPILAN MENU CUSTOMER     ");
+				System.out.println("=========================================");
+				System.out.println(" 1. Registrasi");
+				System.out.println(" 2. Pembelian Barang");
+				System.out.println(" 3. Pembayaran");
+				System.out.println(" 4. Konfirmasi Pembayaran");
+				System.out.println(" 5. Keluar");
+				System.out.print(" Masukkan Pilihan Anda (1-5) : ");
+				int pil2 = Integer.parseInt(inputancustomer.nextLine());
+			
+			switch(pil2)
+			{
+				case 1:
+		System.out.println("Proses Registrasi");
+		System.out.println("======================");	
+		{
+			System.out.print("Masukkan id customer"+"=");
+			idcustomer.addElement(inputan.nextLine());
+			}
+			for (int i=0;i<idcustomer.size();i++)
+			{
+			System.out.print("Masukkan nama customer"+"=");
+			nama.addElement(inputan.nextLine());
+			}
+			for (int i=0;i<nama.size();i++)
+			{
+			System.out.print("Masukkan Jenis Kelamin customer"+"=");
+			jeniskelamin.addElement(inputan.nextLine());
+			}
+			for (int i=0;i<jeniskelamin.size();i++)
+			{
+			System.out.print("Masukkan alamat customer"+"=");
+			alamat.addElement(inputan.nextLine());
+			}
+			for (int i=0;i<alamat.size();i++)
+			{
+			System.out.print("Masukkan kota customer"+"=");
+			kota.addElement(inputan.nextLine());
+			}
+			for (int i=0;i<kota.size();i++)
+			{
+			System.out.print("Masukkan nomortlp customer"+"=");
+			nomortlp.addElement(inputan.nextLine());
+			}
+			
+			for (int i=0;i<1;i++){
+				
+				System.out.println("Id customer : "+(idcustomer.elementAt(i)));
+				System.out.println("nama customer : "+(nama.elementAt(i)));
+				System.out.println("Jenis Kelamin customer : "+(jeniskelamin.elementAt(i)));
+				System.out.println("alamat customer : "+(alamat.elementAt(i)));
+				System.out.println("kota customer : "+(kota.elementAt(i)));
+				System.out.println("nomortlp customer : "+(nomortlp.elementAt(i)));
+				
+			}
+				break;
+				
+				case 2:
+					System.out.println("======================");
+					System.out.println("Pembelian Barang");
+					System.out.println("======================");
+					System.out.println("Daftar barang");
+					System.out.println("----------------------");
+					
+					
+				for (int i=0;i<idbarang.size();i++)	{
+				
+				System.out.println("Nama Barang " +(i+1)+ " : "+namabarang.elementAt(i));
+				
+				System.out.println("Id barang ke " +(i+1)+ " :"+idbarang.elementAt(i));
+				
+					}
+					
+					
+					System.out.println("----------------------");
+					do{
+						System.out.print("pilih ID barang (masukkan 0 untuk selesai) : ");
+						int IDdipilih = Integer.parseInt(inputan.nextLine());
+						if(IDdipilih==0){
+							break;
+						}
+						System.out.print("masukkan jumlah barang : ");
+						int jmlDibeli = Integer.parseInt(inputan.nextLine());
+						
+						System.out.println("Nama Barang " +(IDdipilih)+ " : "+namabarang.elementAt(IDdipilih-1));
+						System.out.println("Id barang ke " +(IDdipilih)+ " :"+idbarang.elementAt(IDdipilih-1));
+						System.out.println("Harga barang ke " +(IDdipilih)+ " :"+harga.elementAt(IDdipilih-1));
+						System.out.println("Stock barang ke " +(IDdipilih)+ " :"+stock.elementAt(IDdipilih-1));
+						
+						beli_idBarang.add(IDdipilih);
+						beli_jmlBarang.add(jmlDibeli);
+						
+					}while(true);
+				break;
+				
+				case 3:
+					System.out.println("======================");
+					System.out.println("Pembayaran");
+					System.out.println("======================");
+					
+					for (int i=0;i<beli_idBarang.size();i++)	
+					{
+						System.out.println("Nama Barang "+(i+1)+" : "+namabarang.elementAt(Integer.parseInt(beli_idBarang.elementAt(i).toString())-1));
+						System.out.println("Id barang ke "+(i+1)+" :"+idbarang.elementAt(Integer.parseInt(beli_idBarang.elementAt(i).toString())-1));
+						System.out.println("Jml barang ke "+(i+1)+" :"+beli_jmlBarang.elementAt(i));
+						System.out.println("Harga barang ke " +(i+1)+ " :"+Integer.parseInt(harga.elementAt(Integer.parseInt(beli_idBarang.elementAt(i).toString())-1).toString())*Integer.parseInt(beli_jmlBarang.elementAt(i).toString()));
+					}	
+					
+					for (int i=0;i<1;i++)	
+					{
+					
+					System.out.println("Id customer : "+(idcustomer.elementAt(i)));
+					System.out.println("nama customer : "+(nama.elementAt(i)));
+					System.out.println("alamat customer : "+(alamat.elementAt(i)));
+					System.out.println("kota customer : "+(kota.elementAt(i)));
+					System.out.println("nomortlp customer : "+(nomortlp.elementAt(i)));
+					id_pembelian.add(id_pembelian.size()+1);
+					System.out.println("ID Pembelian : "+(id_pembelian.elementAt(i)));
+					
+					}
+				break;
+				
+				case 4:
+				
+					System.out.println("======================");
+					System.out.println("Konfirmasi Pembayaran");
+					System.out.println("======================");
+					
+						
+					int _harga_total=0;	
+					for (int i=0;i<beli_idBarang.size();i++)	
+					{
+						System.out.println("Nama Barang "+(i+1)+" : "+namabarang.elementAt(Integer.parseInt(beli_idBarang.elementAt(i).toString())-1));
+						System.out.println("Id barang ke "+(i+1)+" :"+idbarang.elementAt(Integer.parseInt(beli_idBarang.elementAt(i).toString())-1));
+						System.out.println("Harga barang satuan ke "+(i+1)+" :"+harga.elementAt(Integer.parseInt(beli_idBarang.elementAt(i).toString())-1));
+						System.out.println("Jml barang ke "+(i+1)+" :"+beli_jmlBarang.elementAt(i));
+						System.out.println("Harga barang ke " +(i+1)+ " :"+Integer.parseInt(harga.elementAt(Integer.parseInt(beli_idBarang.elementAt(i).toString())-1).toString())*Integer.parseInt(beli_jmlBarang.elementAt(i).toString()));
+						_harga_total+=Integer.parseInt(harga.elementAt(Integer.parseInt(beli_idBarang.elementAt(i).toString())-1).toString())*Integer.parseInt(beli_jmlBarang.elementAt(i).toString());
+					}
+					System.out.println("Harga Total " +_harga_total);
+					double diskon=0;
+					if (_harga_total >= 100000) {
+						diskon = _harga_total * 0.2;
+					} else {
+						diskon = _harga_total * 0.1;
+					}
+					System.out.println("Total Diskon " +diskon);
+					System.out.println("Total Bayar " +(_harga_total-diskon));
+					System.out.println("Masukkan _nominal Pembayaran");
+					double _nominal=Integer.parseInt(inputan.nextLine());
+						if (_nominal == _harga_total-diskon){
+						}else if(_nominal > _harga_total-diskon){
+						System.out.println("Kembalian " +(_nominal-(_harga_total-diskon)));	
+						}
+						
+					hargasebelumdiskon.add(_harga_total);
+					hargasesudahdiskon.add(_harga_total-diskon);
+					if(nominal.size()!=0){
+						nominal.remove(nominal.get(0));
+					}
+					nominal.add(_nominal);
+					System.out.println("Terima Kasih Atas Kunjungan Anda,Silahkan Datang Kembali");
+						
+				
+				break;
+				}
+			}
+			
+			
+			
+		}
+		while(true);
+	}
+}
